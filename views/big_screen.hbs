@@ -1,0 +1,42 @@
+<script src="bootstrap"></script>
+<div class="container">
+
+</div>
+
+<script id="dm-tpl" type="text/html">
+    <div class="dm-item-box dm-item-user">
+        <div class="dm-user-photo-box">
+            <img class="dm-user-phone-img"
+                 src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGE7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZHJlVHdRSG5mc2wxUHF6VE5vMVoAAgRa0vVYAwSAUQEA">
+        </div>
+        <div class="dm-item-content">永恒往哪儿找：主持你，你好帅。</div>
+    </div>
+</script>
+
+<script>
+    $(function () {
+        var socket = io();
+        //获取到socket的新事件
+        socket.on('chat message', function (msg) {
+            console.log(msg);
+
+        });
+
+        var DanMuPlugin = {
+            play: function (danmu) {
+                var tp = $("#dm-tpl");
+                var randTop = Math.random() * document.body.clientHeight;
+                var randSpeed;
+                console.log(randTop);
+
+            },
+            //销毁
+            destroy: function () {
+
+            }
+        };
+        setInterval(function () {
+            DanMuPlugin.play()
+        }, 1000);
+    });
+</script>
